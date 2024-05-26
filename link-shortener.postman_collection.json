@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "6700236f-ce6b-40ed-8955-f7fe5eb29a8f",
+		"name": "link-shortener",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14876429",
+		"_collection_link": "https://restless-crescent-584904.postman.co/workspace/mis-api-service~2578d6db-b030-460f-99f1-bf7d628de6f8/collection/14876429-6700236f-ce6b-40ed-8955-f7fe5eb29a8f?action=share&source=collection_link&creator=14876429"
+	},
+	"item": [
+		{
+			"name": "Local Test",
+			"item": [
+				{
+					"name": "URL Shortener",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"long_url\": \"https://google.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/urls/shorten",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"urls",
+								"shorten"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Redirector",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/urls/c52e872",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"urls",
+								"c52e872"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Docker Test",
+			"item": [
+				{
+					"name": "URL Shortener",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"long_url\": \"https://google.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:31358/api/v1/urls/shorten",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "31358",
+							"path": [
+								"api",
+								"v1",
+								"urls",
+								"shorten"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Redirector",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:31358/api/v1/urls/3ddb8ae6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "31358",
+							"path": [
+								"api",
+								"v1",
+								"urls",
+								"3ddb8ae6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

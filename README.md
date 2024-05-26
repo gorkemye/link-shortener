@@ -13,6 +13,7 @@ consistent data storage and retrieval across the instances.
 - Kubernetes
 - Redis
 
+
 ## Running the Service
 
 1. Clone the repository.
@@ -45,6 +46,10 @@ consistent data storage and retrieval across the instances.
     kubectl delete job --all
 
     ```
+
+## Postman Collection
+
+You can find the Postman collection for this project [here](link-shortener.postman_collection.json).
 
 
 
