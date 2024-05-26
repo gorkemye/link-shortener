@@ -16,6 +16,9 @@ consistent data storage and retrieval across the instances.
 ## Running the Service
 
 1. Clone the repository.
+    ```sh
+    git clone https://github.com/gorkemye/link-shortener
+    ```
 2. Build the Docker image:
     ```sh
     docker build -t link-shortener:latest .
