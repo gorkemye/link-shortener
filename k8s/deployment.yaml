@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: link-shortener
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: link-shortener
+  template:
+    metadata:
+      labels:
+        app: link-shortener
+    spec:
+      containers:
+      - name: link-shortener
+        image: link-shortener:latest
+        imagePullPolicy: IfNotPresent  # Yerel imajı kullanmak için bu satırı ekleyin
+        ports:
+        - containerPort: 8080
+        env:
+        - name: REDIS_ADDR
+          value: "redis:6379"
