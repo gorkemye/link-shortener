@@ -51,12 +51,20 @@ func (h *URLHandler) ShortenURL(w http.ResponseWriter, r *http.Request) {
 	// Send the response
 	response := map[string]string{"short_url": shortURL}
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(response)
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, "Failed to encode response", http.StatusInternalServerError)
+	}
 }
 
 func (h *URLHandler) GetLongURL(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	shortURL := vars["short_url"]
+
+	// Validate the shortURL length
+	if len(shortURL) != 8 {
+		http.Error(w, "Short URL must be 8 character", http.StatusBadRequest)
+		return
+	}
 
 	longURL, err := h.service.GetLongURL(shortURL)
 	if err != nil {
@@ -66,5 +74,7 @@ func (h *URLHandler) GetLongURL(w http.ResponseWriter, r *http.Request) {
 
 	response := map[string]string{"long_url": longURL}
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(response)
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, "Failed to encode response", http.StatusInternalServerError)
+	}
 }
