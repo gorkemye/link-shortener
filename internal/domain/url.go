@@ -9,7 +9,6 @@ type URL struct {
 	ShortURL string // The shortened URL
 }
 
-// ErrURLNotFound is returned when a URL is not found in the repository.
 var (
 	ErrURLNotFound = errors.New("URL not found")
 )

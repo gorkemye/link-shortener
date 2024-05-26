@@ -15,7 +15,7 @@ spec:
       containers:
       - name: link-shortener
         image: link-shortener:latest
-        imagePullPolicy: IfNotPresent  # Yerel imajı kullanmak için bu satırı ekleyin
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:

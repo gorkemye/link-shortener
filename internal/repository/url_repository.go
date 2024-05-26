@@ -37,14 +37,12 @@ func (r *RedisURLRepository) Save(url *domain.URL) error {
 
 // FindByShortURL retrieves the long URL corresponding to the given short URL from Redis.
 // Returns domain.ErrURLNotFound if the short URL is not found.
-// Returns any other error if one occurs.
 //
 // Parameters:
 //   - shortURL: The short URL string.
 //
 // Returns:
 //   - *domain.URL: The URL object containing the long URL (if found).
-//   - error: An error if the URL is not found or another error occurs.
 func (r *RedisURLRepository) FindByShortURL(shortURL string) (*domain.URL, error) {
 	ctx := context.Background()
 	longURL, err := r.client.Get(ctx, shortURL).Result()

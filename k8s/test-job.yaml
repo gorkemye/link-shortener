@@ -12,6 +12,6 @@ spec:
         command: ["/bin/sh", "-c", "go test ./..."]
         env:
         - name: REDIS_ADDR
-          value: "redis:6379"  # Kubernetes içindeki Redis servisi adresi
+          value: "redis:6379"
       restartPolicy: Never
   backoffLimit: 1
